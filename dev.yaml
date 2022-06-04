@@ -1,0 +1,8 @@
+all:
+  windows:
+    vars:
+      ansible_connection: ssh
+      ansible_shell_type: powershell
+    hosts:
+      gambyseb-vm01.westeurope.cloudapp.azure.com
+      gambyseb-vm02.westeurope.cloudapp.azure.com
