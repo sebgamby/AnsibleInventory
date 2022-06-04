@@ -1,3 +1,3 @@
 ---
 collections:
-- chocolatey.Chocolatey
+- name: chocolatey.chocolatey
