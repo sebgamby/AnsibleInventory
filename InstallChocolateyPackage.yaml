@@ -1,13 +1,8 @@
 ---
 - name: "Install a Chocolatey package"
   hosts: VM01
-  vars_prompt:
-    - name: package_name
-      prompt: "What is the name of the package?"
-    - name: package_version
-      prompt: "What is the version of this package?"
   tasks:
-    - name: "Debug"
+    - name: "Information"
       debug:
         msg: "Install the Chocolatey {{ package_name}}:{{package_version}} "
     - name: "Installation"
