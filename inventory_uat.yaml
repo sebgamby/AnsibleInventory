@@ -1,0 +1,9 @@
+all:
+  children:
+    windows:
+      vars:
+        ansible_connection: ssh
+        ansible_shell_type: powershell
+      hosts:
+        gambyseb-vm11.westeurope.cloudapp.azure.com:
+        gambyseb-vm12.westeurope.cloudapp.azure.com:
