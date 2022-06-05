@@ -1,0 +1,8 @@
+---
+- name: "Test PowerShell"
+  hosts: VM02
+  tasks:
+    - name: "Test Powershell"
+      ansible.windows.win_powershell:
+        script: |
+          New-Item "test.txt"
