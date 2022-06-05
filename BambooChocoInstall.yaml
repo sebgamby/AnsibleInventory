@@ -1,0 +1,9 @@
+---
+- name: "Install Bamboo compiled Website"
+  hosts: VM01
+  tasks:
+    - name: "Installation"
+      win_chocolatey:
+          name: "website"
+          state: present
+          source: "C:"
