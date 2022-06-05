@@ -2,7 +2,6 @@
 - name: "Query installed Chocolatey packages on all machines"
   hosts: windows
   tasks:
-    - name: "Chocolatey packages"
-      win_chocolatey_facts:
-        debug:
-          var: ansible_chocolatey.packages
+  - name: Displays the Packages
+    debug:
+      var: ansible_chocolatey.packages
