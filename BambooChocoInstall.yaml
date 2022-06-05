@@ -6,4 +6,4 @@
       win_chocolatey:
           name: "website"
           state: present
-          source: "/"
+          source: "C:/"
