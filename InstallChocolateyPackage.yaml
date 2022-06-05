@@ -1,6 +1,6 @@
 ---
 - name: "Install a Chocolatey package"
-  hosts: gambyseb-vm01.westeurope.cloudapp.azure.com
+  hosts: windows
   tasks:
     - name: Install a Chocolatey package"
       win_chocolatey:
