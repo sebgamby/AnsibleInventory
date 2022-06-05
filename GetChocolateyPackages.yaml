@@ -6,5 +6,6 @@
     win_chocolatey_facts: 
   - name: Displays the Packages
     debug:
-      msg: "{{ item.package }}" 
+      msg: "Found package" 
     loop: "{{ ansible_chocolatey.packages }}"
+    when: item.package == "nodejs-lts"
