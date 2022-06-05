@@ -5,4 +5,4 @@
     - name: "Test Powershell"
       ansible.windows.win_powershell:
         script: |
-          New-Item "test.txt"
+          choco install .\website.0.1.nupkg
