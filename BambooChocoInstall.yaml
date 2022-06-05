@@ -1,6 +1,6 @@
 ---
 - name: "Install Bamboo compiled Website"
-  hosts: VM01
+  hosts: VM02
   tasks:
     - name: "Installation"
       win_chocolatey:
