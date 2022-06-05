@@ -3,7 +3,6 @@
   hosts: VM02
   tasks:
     - name: "Installation"
-      win_chocolatey:
-          name: "website"
-          state: present
-          source: "C:/"
+      ansible.windows.win_powershell:
+        script: |
+          choco install .\website.0.1.nupkg
