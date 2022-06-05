@@ -5,4 +5,4 @@
     - name: "Installation"
       ansible.windows.win_powershell:
         script: |
-          choco install .\website.0.1.nupkg
+          choco install C:\website.0.1.nupkg
