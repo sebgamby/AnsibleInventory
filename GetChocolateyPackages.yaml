@@ -4,5 +4,5 @@
   tasks:
     - name: "Chocolatey packages"
       win_chocolatey:
-          debug:
-            var: ansible_chocolatey.packages
+        debug:
+          var: ansible_chocolatey.packages
