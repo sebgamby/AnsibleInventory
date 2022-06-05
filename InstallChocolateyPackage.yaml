@@ -10,6 +10,6 @@
         msg: "Install Chocolatey package {{ package_name }}:{{ package_version }}"
     - name: Install a Chocolatey package"
       win_chocolatey:
-          name: "{{ package_name }}"
-          version: "{{ package_version }}"
+          name: {{ package_name }}
+          version: {{ package_version }}
           state: present
