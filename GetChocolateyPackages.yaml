@@ -7,4 +7,4 @@
   - name: Displays the Packages
     debug:
       msg: "{{ item.package }}" 
-    loop: ansible_chocolatey.packages
+    loop: "{{ ansible_chocolatey.packages }}"
