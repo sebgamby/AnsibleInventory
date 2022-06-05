@@ -1,9 +1,17 @@
 ---
-- name: "Install Node.js"
+- name: "Install a Chocolatey package"
   hosts: gambyseb-vm01.westeurope.cloudapp.azure.com
+  vars_prompt:
+    - name: package_name
+      prompt: "What is the name of the package?"
+    - name: package_version
+      prompt: "What is the version of this package?"
   tasks:
-    - name: Install Node.js"
+    - name: "Debug"
+      debug:
+        msg: "Install the Chocolatey {{ package_name}}:{{package_version}} "
+    - name: "Installation"
       win_chocolatey:
-          name: nodejs
-          version: "17.4.0"
+          name: "{{ package_name }}"
+          version: "{{ package_version }}"
           state: present
