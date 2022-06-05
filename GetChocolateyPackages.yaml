@@ -6,5 +6,5 @@
     win_chocolatey_facts: 
   - name: Displays the Packages
     debug:
-      msg: item.name
-    with_items: ansible_chocolatey.packages
+      msg: "{{ item.package }}" 
+    loop: ansible_chocolatey.packages
