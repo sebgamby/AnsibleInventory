@@ -1,15 +1,12 @@
 ---
 - name: "Install a Chocolatey package"
   hosts: gambyseb-vm01.westeurope.cloudapp.azure.com
-  vars:
-    - name: package_name      
-    - name: package_version
   tasks:
     - name: Information
       ansible.builtin.debug: 
         msg: "Install Chocolatey package {{ package_name }}:{{ package_version }}"
     - name: Install a Chocolatey package"
       win_chocolatey:
-          name: {{ package_name }}
-          version: {{ package_version }}
+          name: "{{ package_name }}"
+          version: "{{ package_version }}"
           state: present
