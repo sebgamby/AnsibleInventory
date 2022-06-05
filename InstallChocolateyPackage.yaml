@@ -1,12 +1,9 @@
 ---
-- name: "Install a Chocolatey package"
+- name: "Install Node.js"
   hosts: gambyseb-vm01.westeurope.cloudapp.azure.com
   tasks:
-    # - name: Information
-    #   ansible.builtin.debug: 
-    #     msg: "Install Chocolatey package {{ package_name }}:{{ package_version }}"
-    - name: Install a Chocolatey package"
+    - name: Install Node.js"
       win_chocolatey:
-          name: "nodejs"
-          version: "18.3.0"
+          name: nodejs
+          version: "17.4.0"
           state: present
