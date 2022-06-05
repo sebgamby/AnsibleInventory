@@ -5,4 +5,4 @@
     - name: "Test Powershell"
       ansible.windows.win_powershell:
         script: |
-          choco install -y .\website.0.1.nupkg
+          Start-Process -FilePath C:\ProgramData\chocolatey\bin\choco.exe -ArgumentList "install", "-y", "website.0.1.nupkg" -Wait
