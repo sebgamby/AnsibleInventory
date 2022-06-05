@@ -3,6 +3,6 @@
   hosts: windows
   tasks:
     - name: "Chocolatey packages"
-      win_chocolatey:
+      win_chocolatey_facts:
         debug:
           var: ansible_chocolatey.packages
