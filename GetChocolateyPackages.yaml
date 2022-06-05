@@ -7,4 +7,4 @@
   - name: Displays the Packages
     debug:
       var: item
-      with_items: ansible_chocolatey.packages
+    with_items: ansible_chocolatey.packages
