@@ -6,5 +6,5 @@
     win_chocolatey_facts: 
   - name: Displays the Packages
     debug:
-      msg: "package: {{ item.package }}, version: {{ item.version }}"
+      var: item
       with_items: ansible_chocolatey.packages
