@@ -1,8 +1,9 @@
 ---
 - name: "Test PowerShell"
-  hosts: VM02
+  hosts: windows
   tasks:
     - name: "Test Powershell"
       ansible.windows.win_powershell:
         script: |
           Start-Process -FilePath C:\ProgramData\chocolatey\bin\choco.exe -ArgumentList "install", "-y", "website.0.1.nupkg" -Wait
+      when: ansible_facts['hostname'] == target_machine
