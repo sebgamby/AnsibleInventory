@@ -4,7 +4,7 @@
   tasks:
     - name: "Information"
       debug:
-        msg: "Install the Chocolatey {{ package_name}}:{{package_version}} "
+        msg: "Install the Chocolatey {{ package_name}}:{{package_version}} on {{ansible_facts['hostname']}}"
     - name: "Installation"
       win_chocolatey:
           name: "{{ package_name }}"
