@@ -1,6 +1,6 @@
 ---
 - name: "Install IIS"
-  hosts: VM02
+  hosts: windows
   tasks:
     - name: Install IIS (Web-Server and Web-Common-Http)
       ansible.windows.win_feature:
@@ -8,3 +8,4 @@
         - Web-Server
         - Web-Common-Http
         state: present
+      when: ansible_facts['hostname'] == target_machine
