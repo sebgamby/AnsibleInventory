@@ -1,10 +1,10 @@
 ---
 - name: "Install a Chocolatey package"
-  hosts: VM01
+  hosts: windows
   tasks:
     - name: "Information"
       debug:
-        msg: "Install the Chocolatey {{ package_name}}:{{package_version}} on {{ansible_facts['hostname']}}"
+        msg: "Install the Chocolatey {{ package_name}}:{{package_version}}"
     - name: "Installation"
       win_chocolatey:
           name: "{{ package_name }}"
