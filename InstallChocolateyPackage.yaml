@@ -7,7 +7,7 @@
         msg: "Install the Chocolatey {{ package_name}}:{{package_version}}"
     - name: "Installation"
       win_chocolatey:
-          name: "{{ package_name }}"
-          version: "{{ package_version }}"
-          state: present
-          when: ansible_facts['hostname'] == {{target_machine}}
+        name: "{{ package_name }}"
+        version: "{{ package_version }}"
+        state: present
+      when: ansible_facts['hostname'] == {{target_machine}}
