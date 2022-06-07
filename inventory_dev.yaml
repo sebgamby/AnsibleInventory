@@ -5,7 +5,7 @@ all:
         ansible_connection: ssh
         ansible_shell_type: powershell
       hosts:
-        VM01:
+        vm01:
           ansible_host: gambyseb-vm01.westeurope.cloudapp.azure.com
-        VM02:
+        vm02:
           ansible_host: gambyseb-vm02.westeurope.cloudapp.azure.com
