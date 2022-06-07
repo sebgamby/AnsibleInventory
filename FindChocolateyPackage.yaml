@@ -8,4 +8,4 @@
     debug:
       msg: "Found package with version {{ item.version }}" 
     loop: "{{ ansible_chocolatey.packages }}"
-    when: item.package == package_name
+    #when: item.package == package_name
