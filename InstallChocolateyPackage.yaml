@@ -10,3 +10,4 @@
           name: "{{ package_name }}"
           version: "{{ package_version }}"
           state: present
+          when: ansible_facts['hostname'] == {{target_machine}}
