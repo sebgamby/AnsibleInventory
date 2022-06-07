@@ -1,8 +1,6 @@
 ---
 - name: "Query installed Chocolatey packages on all machines"
   hosts: windows
-  module_defaults:
-    display_skipped_hosts: "no"
   tasks:
   - name: Gather facts from chocolatey
     win_chocolatey_facts: 
