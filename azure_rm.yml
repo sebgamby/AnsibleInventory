@@ -1,0 +1,10 @@
+---
+plugin: azure_rm
+include_vm_resource_groups:
+  - Lab
+auth_source: auto
+conditional_groups:
+  linux: "'CentOS' in image.offer"
+  windows: "'WindowsServer' in image.offer"
+keyed_groups:
+ - key: tags.Environment
