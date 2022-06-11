@@ -2,9 +2,10 @@
 - name: "Install a Docker container"
   hosts: docker
   tasks:
-  community.docker.docker_container:
-    - name: Install a Docker container
-      image: gambyseb/private:win-docker-demo-0.1
-      state: started
-      ports:
-      - "80:80"
+    - name: "Install a Docker container"
+      community.docker.docker_container:
+        - name: "Docker Demo"
+          image: gambyseb/private:win-docker-demo-0.1
+          state: started
+          ports:
+          - "80:80"
