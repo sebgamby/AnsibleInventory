@@ -2,9 +2,8 @@
 - name: "Install a Docker container"
   hosts: docker
   tasks:
-    - name: "Install a Docker container"
-      community.docker.docker_container:
-        name: "DockerDemo"
-        image: gambyseb/private:win-docker-demo-0.1
-        ports:
-        - "80:80"
+    - name: "Create and start a container"
+      ansible.windows.win_powershell:
+        script: |
+          docker container create --name WinDockerDemo -p 80:80 gambyseb/private:win-docker-demo-0.2
+          docker container start WinDockerDemo
