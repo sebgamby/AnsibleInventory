@@ -9,7 +9,7 @@
         state: present
       register: win_feature
     
-    - name: Reboot the machine wait for win_feature to be confirmed installed
+    - name: Reboot the machine to finish the installation of the Windows feature 'Containers'
       ansible.windows.win_reboot:
       when: win_feature.reboot_required
 
@@ -33,3 +33,6 @@
         name: docker
         start_mode: auto
         state: started
+    
+    - name: Reboot the machine to finish the installation of Docker
+      ansible.windows.win_reboot:

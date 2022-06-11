@@ -4,7 +4,7 @@
   tasks:
     - name: "Install a Docker container"
       community.docker.docker_container:
-        name: "Docker Demo"
+        name: "DockerDemo"
         image: gambyseb/private:win-docker-demo-0.1
         ports:
         - "80:80"
