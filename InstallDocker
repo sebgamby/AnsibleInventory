@@ -1,0 +1,34 @@
+---
+- name: "Install Docker"  
+  hosts: windows
+  tasks:
+    - name: Install the Windows Feature 'Containers'
+      ansible.windows.win_feature:
+        name:
+        - Containers
+        state: present
+      when: ansible_facts['hostname'] == target_machine
+      Register: win_feature
+    
+    - name: Reboot the machine wait for win_feature to be confirmed installed
+      ansible.windows.win_reboot:
+        test_command: 'exit (Get-WindowsFeature -Name Containers).InstallState -eq "Installed"'
+      when: win_feature.reboot_required and (ansible_facts['hostname'] == target_machine)
+
+    - name: Install the Powershell module 'DockerMsftProvider'
+      ansible.windows.win_powershell:
+        script: |
+          Install-Module -Name DockerMsftProvider -Repository PSGallery -Force
+      when: ansible_facts['hostname'] == target_machine
+    
+    - name: Install Docker'
+      ansible.windows.win_powershell:
+        script: |
+          Install-Package -Name docker -ProviderName DockerMsftProvider
+      when: ansible_facts['hostname'] == target_machine
+
+    - name: Start the 'Docker' service and make sure that it has start mode 'auto'
+      ansible.windows.win_service:
+        name: Docker
+        start_mode: auto
+        state: started
