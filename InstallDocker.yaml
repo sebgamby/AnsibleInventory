@@ -1,6 +1,6 @@
 ---
 - name: "Install Docker"  
-  hosts: docker
+  hosts: vm12
   tasks:
     - name: Install the Windows Feature 'Containers'
       ansible.windows.win_feature:
@@ -26,10 +26,10 @@
     - name: Install Docker'
       ansible.windows.win_powershell:
         script: |
-          Install-Package -Name docker -ProviderName DockerMsftProvider
+          Install-Package -Name docker -ProviderName DockerMsftProvider -Force
 
     - name: Start the 'Docker' service and make sure that it has start mode 'auto'
       ansible.windows.win_service:
-        name: Docker
+        name: docker
         start_mode: auto
         state: started
