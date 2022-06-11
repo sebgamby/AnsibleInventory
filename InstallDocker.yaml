@@ -37,3 +37,7 @@
         start_mode: auto
         state: started
       when: win_feature.reboot_required
+      
+    - name: Reboot the machine to finish the installation of the Windows feature 'Containers'
+      ansible.windows.win_reboot:
+      when: win_feature.reboot_required
