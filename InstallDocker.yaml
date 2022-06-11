@@ -32,3 +32,4 @@
         name: Docker
         start_mode: auto
         state: started
+      when: ansible_facts['hostname'] == target_machine
