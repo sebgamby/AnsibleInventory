@@ -8,4 +8,3 @@
         - Web-Server
         - Web-Common-Http
         state: present
-      when: ansible_facts['hostname'] == target_machine

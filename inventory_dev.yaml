@@ -12,3 +12,6 @@ all:
     iis:
       hosts:
         vm02:
+    nodejs:
+      hosts:
+        vm01:
