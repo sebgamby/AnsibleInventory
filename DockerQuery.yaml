@@ -1,0 +1,13 @@
+---
+- name: "Install a Docker container"
+  hosts: docker
+  tasks:
+    - name: "Execute Docker command"
+      ansible.windows.win_powershell:
+        script: |
+          docker container list --all
+      register: pwsh_out
+
+    - name: "Display result"
+      debug:
+        var: pwsh_out.output
