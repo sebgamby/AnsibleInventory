@@ -9,3 +9,6 @@ all:
           ansible_host: gambyseb-vm11.westeurope.cloudapp.azure.com
         vm12:
           ansible_host: gambyseb-vm12.westeurope.cloudapp.azure.com
+    docker:
+      hosts:
+        vm11:
