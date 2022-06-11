@@ -9,3 +9,6 @@ all:
           ansible_host: gambyseb-vm01.westeurope.cloudapp.azure.com
         vm02:
           ansible_host: gambyseb-vm02.westeurope.cloudapp.azure.com
+    iis:
+      hosts:
+        vm02:
