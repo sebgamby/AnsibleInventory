@@ -20,7 +20,7 @@
         script: |
           Install-Module -Name DockerMsftProvider -Repository PSGallery -Force
       when: ansible_facts['hostname'] == target_machine
-    
+    #
     - name: Install Docker'
       ansible.windows.win_powershell:
         script: |
