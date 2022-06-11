@@ -8,7 +8,7 @@
         - Containers
         state: present
       when: ansible_facts['hostname'] == target_machine
-      Register: win_feature
+      register: win_feature
     
     - name: Reboot the machine wait for win_feature to be confirmed installed
       ansible.windows.win_reboot:
@@ -20,7 +20,7 @@
         script: |
           Install-Module -Name DockerMsftProvider -Repository PSGallery -Force
       when: ansible_facts['hostname'] == target_machine
-    #
+    
     - name: Install Docker'
       ansible.windows.win_powershell:
         script: |
