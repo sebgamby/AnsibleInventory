@@ -1,6 +1,6 @@
 ---
 - name: "Install Docker"  
-  hosts: vm12
+  hosts: docker
   tasks:
     - name: Install the Windows Feature 'Containers'
       ansible.windows.win_feature:
