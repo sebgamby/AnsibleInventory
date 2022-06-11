@@ -13,7 +13,7 @@
     - name: Reboot the machine wait for win_feature to be confirmed installed
       ansible.windows.win_reboot:
         test_command: 'exit (Get-WindowsFeature -Name Containers).InstallState -eq "Installed"'
-      when: win_feature.reboot_required and (ansible_facts['hostname'] == target_machine)
+      when: win_feature.reboot_required 
 
     - name: Install the Powershell module 'DockerMsftProvider'
       ansible.windows.win_powershell:
