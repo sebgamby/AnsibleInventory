@@ -33,7 +33,20 @@
         name: docker
         start_mode: auto
         state: started
+
+    # The 'Docker' Ansible module requires the Python SDK to work
+    - name: "Install python"
+      win_chocolatey:
+        name: "python"
+        version: "3.10.5"
+        state: present
+      when: ansible_facts['hostname'] == target_machine
     
     - name: Reboot the machine to finish the installation of Docker
       ansible.windows.win_reboot:
       when: win_feature.reboot_required
+    
+    - name: Install the Python Docker SDK'
+      ansible.windows.win_powershell:
+        script: |
+          pip install docker
