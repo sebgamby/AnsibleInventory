@@ -10,7 +10,7 @@
       register: win_feature
     
     - debug:
-        var: win_feature  
+        var: win_feature.feature_result 
     
     # - name: Reboot the machine wait for win_feature to be confirmed installed
     #   ansible.windows.win_reboot:
