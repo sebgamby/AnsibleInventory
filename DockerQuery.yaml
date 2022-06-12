@@ -1,5 +1,5 @@
 ---
-- name: "Install a Docker container"
+- name: "Query the list of container"
   hosts: docker
   tasks:
     - name: "Execute Docker command"
