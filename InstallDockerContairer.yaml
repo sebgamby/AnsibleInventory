@@ -2,6 +2,12 @@
 - name: "Install a Docker container"
   hosts: docker
   tasks:
+    - name: "pull the heavyweight image"
+      ansible.windows.win_command: docker pull mcr.microsoft.com/windows/servercore:ltsc2019 
+    
+    - name: "pull the image image"
+      ansible.windows.win_command: docker pull gambyseb/private:win-docker-demo-0.2 
+
     - name: "Create the container container"
       ansible.windows.win_command: docker container create --name WinDockerDemo -p 80:80 gambyseb/private:win-docker-demo-0.2          
     
