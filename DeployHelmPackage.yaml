@@ -2,14 +2,16 @@
 - name: "Deploym Helm package"
   hosts: localhost
   tasks:
+    - name: Set local DNS record
+      ansible.builtin.script: echo "192.158.1.0 proget.local" >> etc/hosts
 
-     - name: Add chart repo
-       kubernetes.core.helm_repository:
+    - name: Add chart repo
+      kubernetes.core.helm_repository:
           name: proget
-          repo_url: "http://192.158.1.4/helm/demo"
+          repo_url: "http://proget.local/helm/demo"
 
-     - name: Install demo Chart
-       kubernetes.core.helm:
+    - name: Install demo Chart
+      kubernetes.core.helm:
         name: nginx-demo
         namespace: default
         chart_ref: proget/demo
