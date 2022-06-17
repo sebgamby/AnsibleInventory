@@ -6,9 +6,7 @@
       ansible.builtin.shell: echo "192.158.1.0 proget.local" >> /etc/hosts
 
     - name: Add chart repo
-      kubernetes.core.helm_repository:
-          name: proget
-          repo_url: "http://proget.local/helm/demo"
+      ansible.builtin.shell: helm repo add proget https://proget.local/helm/demo --ca-file ca.crt
 
     - name: Install demo Chart
       kubernetes.core.helm:
