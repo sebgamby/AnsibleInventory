@@ -4,6 +4,33 @@
   tasks:
     - name: Set local DNS record
       ansible.builtin.shell: echo "192.158.1.0 proget.local" >> /etc/hosts
+    
+    - name: prepare ca file
+      ansible.builtin.shell: |
+        tee ca.crt < EOF
+        -----BEGIN CERTIFICATE-----
+        MIIDFDCCAfygAwIBAgIICB53FQvr4fcwDQYJKoZIhvcNAQELBQAwEDEOMAwGA1UE
+        AxMFbG9jYWwwHhcNMjIwNjA2MTkxNzAwWhcNMjMwNjA2MTkxNzAwWjAQMQ4wDAYD
+        VQQDEwVsb2NhbDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMGs3tWT
+        NRri/g4G+dInYoiLwmbyYKEp1e82o9DU3mDhPMuat/R1dEwuyfZBCE98PIZ4tfAh
+        7YCV/XJrk4EMBDAp63cxkNoCsEGnC9MF70wRgn3JcRNyKeZieuy8BJlWN6/KG8GH
+        WTUcr/Woi96APwMsH8Vemp+eL7iuxhTdHCae2OfGK/sUViybRPCId1/zy1ik6SC/
+        jD+dc49A08HKNXqQjryNddlNwzYcKGp3hT5M6EOteABYEPgC6hHOBWB8BiEWtDkU
+        3CnozEDCcZdoGubas65bv0K3Ib31y3086Q94qt10OJSuoWzYlgpvTl9OnEvrO44/
+        bXa545yzqR6SdMcCAwEAAaNyMHAwDwYDVR0TAQH/BAUwAwEB/zAdBgNVHQ4EFgQU
+        0jipOuIoLn3OQGcgs0SYkZH5tFcwCwYDVR0PBAQDAgEGMBEGCWCGSAGG+EIBAQQE
+        AwIABzAeBglghkgBhvhCAQ0EERYPeGNhIGNlcnRpZmljYXRlMA0GCSqGSIb3DQEB
+        CwUAA4IBAQAeTZE0u8EaYslKJ2uE+qBThiptag/Wl7fWWZ50q60H7gHSZT6q+L39
+        M4mzSXz00yICeUM9fEgUDP4ovVd0J28P6gLTnFBswdqwe98bwsy1Sy1XHVfWh2Qj
+        y4pT6PjGyZNX0iQCCx83d3ULYg8m3BVIj70LkeV4iuMkiTF01nVZ6d8Xrre7VtL8
+        3zBrefIP6yYb6Wf2c2awcKWxRIXKPRSP6ZfAiSCXF7vzhNhFS6UOOXIU5XwngfxZ
+        6srxoHHYS6MC2hN5XvLLlyfQAM3hX6HpdLq5cAEyrc+YOTSZmzIJfL7YScU/vtZV
+        KURWjIQzCHzdtOkwDb/ZB4DSEMgBjF/S
+        -----END CERTIFICATE-----
+        EOF
+
+    - name: check ca file
+      ansible.builtin.shell: cat ca.crt
 
     - name: Add chart repo
       ansible.builtin.shell: helm repo add proget https://proget.local/helm/demo --ca-file ca.crt
