@@ -7,7 +7,7 @@
     
     - name: prepare ca file
       ansible.builtin.shell: |
-        tee ca.crt < EOF
+        tee ca.crt << EOF
         -----BEGIN CERTIFICATE-----
         MIIDFDCCAfygAwIBAgIICB53FQvr4fcwDQYJKoZIhvcNAQELBQAwEDEOMAwGA1UE
         AxMFbG9jYWwwHhcNMjIwNjA2MTkxNzAwWhcNMjMwNjA2MTkxNzAwWjAQMQ4wDAYD
