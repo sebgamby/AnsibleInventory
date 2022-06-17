@@ -8,7 +8,7 @@
     - name: Add chart repo
       kubernetes.core.helm_repository:
           name: proget
-          repo_url: "http://proget-svc/helm/demo"
+          repo_url: "http://proget.local/helm/demo"
 
     - name: Install demo Chart
       kubernetes.core.helm:
