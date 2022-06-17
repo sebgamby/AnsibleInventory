@@ -29,9 +29,6 @@
         -----END CERTIFICATE-----
         EOF
 
-    - name: check ca file
-      ansible.builtin.shell: cat ca.crt
-
     - name: Add chart repo
       ansible.builtin.shell: helm repo add proget https://proget.local/helm/demo --ca-file ca.crt
 
