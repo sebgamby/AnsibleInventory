@@ -3,7 +3,7 @@
   hosts: localhost
   tasks:
     - name: Set local DNS record
-      ansible.builtin.shell: echo "192.158.1.0 proget.local" >> etc/hosts
+      ansible.builtin.shell: echo "192.158.1.0 proget.local" >> /etc/hosts
 
     - name: Add chart repo
       kubernetes.core.helm_repository:
