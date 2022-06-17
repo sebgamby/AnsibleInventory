@@ -11,5 +11,5 @@
      - name: Install demo Chart
        kubernetes.core.helm:
         name: nginx-server
-        namespace: testing
+        namespace: default
         chart_ref: bitnami/nginx
