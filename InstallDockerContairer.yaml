@@ -3,12 +3,9 @@
   hosts: docker
   tasks:
     - name: "pull the heavyweight image"
-      ansible.windows.win_command: docker pull mcr.microsoft.com/windows/servercore:ltsc2019 
-      async: 600
-      poll: 15
-    
-    - name: "pull the target image"
       ansible.windows.win_command: docker pull gambyseb/private:win-docker-demo-0.2 
+      async: 750
+      poll: 15
 
     - name: "Create the container"
       ansible.windows.win_command: docker container create --name WinDockerDemo -p 80:80 gambyseb/private:win-docker-demo-0.2          
